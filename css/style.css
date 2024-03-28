@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    place-items: center;
+    background: #000;
+    font-family: Bradley Hand, cursive;
+}
+
+#container {
+    margin: 5px;
+    position: absolute;
+    top: 20px;
+    border: 2px solid solid;
+    border-radius: 10px;
+    z-index: 0;
+}
+
+#container::before,
+#container::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #ff00ff, #800080);
+    z-index: -1;
+    animation: neon-glow 1.5s infinite alternate-reverse;
+}
+
+
+/*Fundo animado*/
+
+#container-bolhas {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#bolhas {
+    position: absolute;
+    display: flex;
+}
+
+#bolhas span {
+    width: 30px;
+    height: 30px;
+    background: #ff00ff;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #ff00ff44,
+    0 0 50px #ff00ff,
+    0 0 100px #ff00ff;
+    animation: animar calc(50s / var(--i)) infinite;
+    
+}
+
+#bolhas span:nth-of-type(even) {
+    background: #ffffff;
+    box-shadow: 0 0 0 10px #ffffff44,
+    0 0 50px #ffffff,
+    0 0 100px #ffffff;
+}
+
+
+
+
+/*Topo*/
+
+#topo {
+    width: 860px;
+    height: 160px;
+}
+
+/*Cabeçalho*/
+
+#cabecalho {
+    background: #071224;
+    
+}
+
+#cabecalho h3 {
+    text-align: center;
+    color: rgb(255, 0, 200);
+    text-shadow: 0 0 5px #A020F0, 0 0 10px #A020F0, 0 0 15px #A020F0, 0 0 20px #A020F0, 0 0 25px #A020F0, 0 0 30px #A020F0, 0 0 35px #A020F0;
+    animation: neon 1.5s infinite alternate;
+}
+
+.linha-neon {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, #f08cff, #fc5aff, #ff3aff, #ff1aff, #ff006f, #ff1aff, #ff3aff, #fc5aff, #f08cff);
+    animation: neon-linha 1.5s infinite alternate;
+}
+
+
+
+
+
+/*Conteudo*/
+
+#conteudo {
+    background: #071224;
+    color: #ffffff;
+    text-align: center;
+    padding: 5px;
+}
+
+#conteudo h2 {
+    text-shadow: 0 0 5px #ff00d0, 0 0 10px #A020F0, 0 0 15px #ff00d0, 0 0 20px #A020F0, 0 0 25px #ff00d0, 0 0 30px #A020F0, 0 0 35px #ff00d0;
+}
+
+#perfil {
+    margin: 10px;
+    border-radius: 50%;
+    border: 2px solid #ff00d0;
+    box-shadow: 0 0 1.5px #ff00d0, 0 0 2.5px #A020F0, 0 0 3.5px #A020F0, 0 0 4.5px #A020F0, 0 0 5.5px #A020F0, 0 0 6.5px #A020F0, 0 0 7.5px #A020F0;
+}
+
+/*Sobremim*/
+
+#sobremim {
+    padding: 10px;
+    background: #071224;
+}
+
+#sobremim h3 {
+    color: #fc5aff;
+    text-shadow: 0 0 1.5px #ff00d0, 0 0 2.5px #A020F0, 0 0 3.5px #A020F0, 0 0 4.5px #A020F0, 0 0 5.5px #A020F0, 0 0 6.5px #A020F0, 0 0 7.5px #A020F0;
+}
+
+#sobremim p {
+    color: #ffffff;
+    text-shadow: 0 0 1.5px #ffffff, 0 0 2.5px #A020F0, 0 0 3.5px #A020F0, 0 0 4.5px #A020F0, 0 0 5.5px #A020F0, 0 0 6.5px #A020F0, 0 0 7.5px #ffffff;
+}
+
+/*Rodape*/
+
+#rodape {
+    background: #000;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+}
+
+#rodape span {
+    color: #7d7d7d;
+}
+
+/*Animações*/
+
+@keyframes neon-glow {
+    from {
+      border-color: transparent;
+      box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #800080, 0 0 25px #800080, 0 0 30px #800080;
+    }
+    to {
+      border-color: transparent;
+      box-shadow: 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #800080, 0 0 30px #800080, 0 0 35px #800080;
+    }
+}
+
+@keyframes animar {
+
+    0% {
+        transform: translateY(100vh) scale(0);
+    }
+    100% {
+        transform: translateY(-10vh) scale(1);
+    }
+}
+
+@keyframes neon {
+
+    from {
+        text-shadow: 0 0 5px #A020F0, 0 0 10px #A020F0, 0 0 15px #A020F0, 0 0 20px #A020F0, 0 0 25px #A020F0, 0 0 30px #A020F0, 0 0 35px #A020F0;
+      }
+      to {
+        text-shadow: 0 0 10px #A020F0, 0 0 15px #A020F0, 0 0 20px #A020F0, 0 0 25px #A020F0, 0 0 30px #A020F0, 0 0 35px #A020F0, 0 0 40px #A020F0;
+      }
+
+}
+
+@keyframes neon-linha {
+
+    from {
+        filter: blur(4px);
+        opacity: 0.4;
+    }
+
+    to {
+        filter: blur(8px);
+        opacity: 1;
+    }
+
+}
